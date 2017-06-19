@@ -34,7 +34,7 @@ bot.on('message', (payload, reply) => {
 
   let text = payload.message.text;
   if(payload.message.attachments){
-    text = "Bremne-Fisch-Krabbe"
+    text = "Bremen-Fisch-Krabbe"
   }
   let senderId = payload.sender.id;
   //Create new converstation if necessary

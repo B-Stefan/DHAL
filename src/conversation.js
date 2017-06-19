@@ -48,7 +48,7 @@ var Conversation = function() {
 
 		}
 
-		if(match(splitedMessage, ["Hilfe", "help"])) {
+		if(match(splitedMessage, ["Hilfe", "help", "HILFE", "hilf"])) {
 			var answerOptions = [];
 
 			var helpText = 'ℹ️ Du kannst mich zum Beispiel fragen, WO dein Paket gerade ist, ' +
@@ -115,7 +115,7 @@ var Conversation = function() {
         return askForPackage()
       }
 
-			var werText = 'Amazon hat Dein Paket abgeschickt. 😱 Kann ich dir sonst noch irgendwie weiterhelfen? 😙';
+			var werText = 'Amazon China hat Dein Paket abgeschickt. 😱 Kann ich dir sonst noch irgendwie weiterhelfen? 😙';
 			var answerOptions = [];
 			return { answer: werText, answerOptions: answerOptions };
 		}
