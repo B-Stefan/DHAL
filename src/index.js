@@ -17,8 +17,9 @@ function removeOldConversation(){
         .forEach((keyValue)=>{
             delete conversations[keyValue.key]
         })
-  },1000 * 60 * 5)
+  }, 1000 * 60 * 5)
 }
+
 let bot = new Bot({
   token: process.env.TOKEN,
   verify: process.env.VERIFY,
@@ -33,14 +34,18 @@ bot.on('message', (payload, reply) => {
   console.log("new Palyload", payload);
 
   let text = payload.message.text;
+
   if(payload.message.attachments){
     text = "Bremen-Fisch-Krabbe"
   }
+
   let senderId = payload.sender.id;
+
   //Create new converstation if necessary
   if(!conversations.hasOwnProperty(senderId)){
     conversations[senderId] = new Conversation();
   }
+
   let conversation = conversations[senderId];
 
   bot.getProfile(senderId, (err, profile) => {
@@ -60,9 +65,11 @@ bot.on('message', (payload, reply) => {
 
 
     let response = { text: answer};
+
     if(quick_replies.length > 0 ){
       response.quick_replies = quick_replies
     }
+
     console.log("Send response  ", answer,answerOptions);
     reply(response, (err) => {
       console.log("Error:", err);
